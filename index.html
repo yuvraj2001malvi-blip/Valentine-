@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Valentine</title>
+<style>
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#ffd6e7,#ffeaf3);
+  font-family:'Arial', sans-serif;
+}
+
+.card{
+  background:#fff;
+  padding:45px 35px;
+  border-radius:25px;
+  text-align:center;
+  position:relative;
+  width:340px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+h2{
+  font-size:26px;
+  margin-bottom:10px;
+}
+
+.sub{
+  font-size:18px;
+  margin-bottom:30px;
+  color:#555;
+}
+
+button{
+  padding:14px 32px;
+  border:none;
+  border-radius:30px;
+  font-size:18px;
+  cursor:pointer;
+}
+
+#yes{
+  background:#ff4d6d;
+  color:white;
+}
+
+#no{
+  background:#ddd;
+  position:absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Will you be my Valentine? 🥹💖</h2>
+  <div class="sub">Soch lo ache se… 🥹👉👈</div>
+
+  <button id="yes">Yes 💕</button>
+  <button id="no">No 🙄</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+function moveBtn(){
+  const card = document.querySelector(".card");
+  const r = card.getBoundingClientRect();
+  noBtn.style.left = Math.random()*(r.width-90)+"px";
+  noBtn.style.top = Math.random()*(r.height-45)+"px";
+}
+
+noBtn.addEventListener("mouseover", moveBtn);
+noBtn.addEventListener("touchstart", moveBtn);
+
+document.getElementById("yes").onclick = function(){
+  document.querySelector(".card").innerHTML =
+  "<h2>YAYYYY 🥹💖</h2><p style='font-size:20px;'>Mujhe pata tha tum mana nahi kar paogi 😌✨</p>";
+};
+</script>
+
+</body>
+</html>
